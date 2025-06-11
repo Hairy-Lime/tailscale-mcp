@@ -1,0 +1,34 @@
+# Smithery configuration file: https://smithery.ai/docs/build/project-config
+
+startCommand:
+  type: stdio
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({ command: 'npx', args: ['--package=@hexsleeves/tailscale-mcp-server', 'tailscale-mcp-server'], env: { TAILSCALE_API_KEY: config.tailscaleApiKey, TAILSCALE_TAILNET: config.tailscaleTailnet, TAILSCALE_API_BASE_URL: config.tailscaleApiBaseUrl, LOG_LEVEL: config.logLevel?.toString() } })
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - tailscaleApiKey
+      - tailscaleTailnet
+    properties:
+      tailscaleApiKey:
+        type: string
+        description: Your Tailscale API key
+      tailscaleTailnet:
+        type: string
+        description: Your Tailscale tailnet name
+      tailscaleApiBaseUrl:
+        type: string
+        default: https://api.tailscale.com
+        description: Optional Tailscale API base URL
+      logLevel:
+        type: number
+        default: 1
+        description: "Optional log level: 0=DEBUG,1=INFO,2=WARN,3=ERROR"
+  exampleConfig:
+    tailscaleApiKey: tskey_123456abcdef
+    tailscaleTailnet: example-tailnet
+    tailscaleApiBaseUrl: https://api.tailscale.com
+    logLevel: 1
