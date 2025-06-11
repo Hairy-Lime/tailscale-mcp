@@ -1,5 +1,6 @@
 # Tailscale MCP Server
 
+[![smithery badge](https://smithery.ai/badge/@Hairy-Lime/tailscale-mcp)](https://smithery.ai/server/@Hairy-Lime/tailscale-mcp)
 A modern [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server that provides seamless integration with Tailscale's CLI commands and REST API, enabling automated network management and monitoring through a standardized interface.
 
 <a href="https://glama.ai/mcp/servers/@HexSleeves/tailscale-mcp">
@@ -30,6 +31,14 @@ This project includes comprehensive documentation organized by domain:
 - **[🐳 Docker Guide](docs/docker.md)** - Container usage, development workflows, and deployment strategies
 
 ## Quick Start
+
+### Installing via Smithery
+
+To install tailscale-mcp for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@Hairy-Lime/tailscale-mcp):
+
+```bash
+npx -y @smithery/cli install @Hairy-Lime/tailscale-mcp --client claude
+```
 
 ### Option 1: NPX (Recommended)
 
